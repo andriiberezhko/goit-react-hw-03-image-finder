@@ -44,7 +44,7 @@ export class App extends React.Component {
     }
   }
 
-  // изьуняем стейт по результатам поиска
+  // изменяем стейт по результатам поиска
   onSubmitSearch = search => {
     this.setState(prevState => {
       return {
@@ -83,8 +83,13 @@ export class App extends React.Component {
       <div className="App">
         <Searchbar onSubmit={this.onSubmitSearch} />
         {error && <Alert />}
-        <ImageGallery imgs={this.state.images} onClick={this.handleImg} />
-        {images.length > 0 && <Button onClick={this.onLoadMoreBtnClick} />}
+
+        {images.length > 0 && (
+          <>
+            <ImageGallery imgs={this.state.images} onClick={this.handleImg} />
+            <Button onClick={this.onLoadMoreBtnClick} />
+          </>
+        )}
         {loading && <Loader />}
         {showModal && (
           <Modal onClose={this.toggleModal}>

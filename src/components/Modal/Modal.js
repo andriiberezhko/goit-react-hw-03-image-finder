@@ -26,10 +26,17 @@ class Modal extends React.Component {
       this.props.onClose();
     }
   };
+
+  static propTypes = {
+    onClose: PropTypes.func.isRequired,
+  };
+
   render() {
     return createPortal(
       <div className={s.Overlay} onClick={this.handleBackdropClick}>
-        <div className={s.Modal}>{this.props.children}</div>
+        <div className={s.Modal}>
+          <img src={this.props.src} alt="" />
+        </div>
       </div>,
       modalRoot
     );
@@ -38,6 +45,6 @@ class Modal extends React.Component {
 
 export default Modal;
 
-Modal.propsType = {
-  onClose: PropTypes.func.isRequired,
-};
+// Modal.propsType = {
+//   onClose: PropTypes.func.isRequired,
+// };

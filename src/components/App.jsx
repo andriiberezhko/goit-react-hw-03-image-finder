@@ -33,7 +33,7 @@ export class App extends React.Component {
           }
           this.setState(({ images }) => {
             return {
-              images: images.concat(data.hits),
+              images: images.concat(data),
             };
           });
         })
@@ -91,11 +91,7 @@ export class App extends React.Component {
           </>
         )}
         {loading && <Loader />}
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <img src={largeImgUrl} alt="" />
-          </Modal>
-        )}
+        {showModal && <Modal onClose={this.toggleModal} src={largeImgUrl} />}
       </div>
     );
   }

@@ -14,6 +14,11 @@ class Searchbar extends React.Component {
     e.preventDefault();
     this.props.onSubmit(this.state.search);
   };
+
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   render() {
     return (
       <header className={s.Searchbar}>
@@ -40,6 +45,6 @@ class Searchbar extends React.Component {
 
 export default Searchbar;
 
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Searchbar.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
